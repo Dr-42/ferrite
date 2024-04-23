@@ -1,6 +1,7 @@
 #ifndef FERRITEWIN_H
 #define FERRITEWIN_H
 
+#include "ferriteinput.h"
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -21,6 +22,8 @@ typedef struct ferrite_win_t {
 	int8_t flags;
 	char* title;
 	void *win_handle; // depends on platform
+	void *VkSurface; // depends on platform
+	ferrite_win_event_t* event_stack;
 } ferrite_win_t;
 
 void ferrite_win_init(ferrite_win_t *win, int32_t x, int32_t y, int32_t width, int32_t height, char *title);
@@ -54,5 +57,5 @@ void ferrite_win_show_cursor(ferrite_win_t *win);
 bool ferrite_win_is_cursor_grabbed(ferrite_win_t *win);
 bool ferrite_win_is_cursor_hidden(ferrite_win_t *win);
 
-bool ferrite_win_poll_event(ferrite_win_t *win, void *event);
+bool ferrite_win_poll_event(ferrite_win_t *win, ferrite_win_event_t *event);
 #endif // FERRITEWIN_H
