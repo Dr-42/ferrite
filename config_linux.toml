@@ -1,0 +1,20 @@
+[build]
+compiler = "clang"
+
+[[targets]]
+name = "testbed"
+src = "./testbed/src/"
+include_dir = "./testbed/src/include/"
+type = "exe"
+cflags = "-g -Wall -Wextra"
+libs = ""
+deps = ["libdr42win"]
+
+[[targets]]
+name = "libdr42win"
+src = "./ferritewin/src/"
+include_dir = "./ferritewin/src/include/"
+type = "dll"
+cflags = "-g -Wall -Wextra"
+libs = "-lwayland-client"
+deps = [""]
